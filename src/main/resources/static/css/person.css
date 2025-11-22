@@ -1,0 +1,182 @@
+/* Full-page background styling (based on your old CSS idea) */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: url(https://picsum.photos/3000/2000/?image=1015) center center / cover no-repeat fixed;
+  min-height: 100vh;
+  position: relative;
+  color: #f5f7fb;
+}
+
+/* Soft blue gradient overlay on top of the background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(3, 169, 244, 0.9) 0%, rgba(3, 169, 244, 0.6) 35%, transparent 75%);
+  pointer-events: none;
+}
+
+/* Wrapper to keep content centered and above overlay */
+.page-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 24px 24px 40px;
+  box-sizing: border-box;
+}
+
+/* Top navigation bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #e8f4ff;
+  opacity: 0.85;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Centers the card vertically + horizontally-ish */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 80px);
+}
+
+/* Main welcome card */
+.welcome-card {
+  background: rgba(255, 255, 255, 0.96);
+  color: #1f2933;
+  max-width: 460px;
+  padding: 32px 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative accent on the card */
+.welcome-card::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at center, #03a9f4, #ff4987);
+  opacity: 0.15;
+}
+
+/* User avatar circle */
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #03a9f4, #ff4987);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+/* Small subtitle text */
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #7c8796;
+}
+
+/* Main heading */
+.title {
+  margin: 6px 0 10px;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  color: #1f2933;
+}
+
+/* Description text */
+.description {
+  margin: 0 0 24px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Action buttons container */
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.25s, color 0.25s, transform 0.2s, box-shadow 0.2s, border-color 0.25s;
+  cursor: pointer;
+}
+
+/* Primary button */
+.btn.primary {
+  background: linear-gradient(135deg, #03a9f4, #0288d1);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(3, 169, 244, 0.5);
+}
+
+.btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(3, 169, 244, 0.6);
+}
+
+/* Outline / ghost button */
+.btn.ghost {
+  background: transparent;
+  color: #1f2933;
+  border-color: #d0d7e2;
+}
+
+.btn.ghost:hover {
+  border-color: #03a9f4;
+  color: #03a9f4;
+  transform: translateY(-1px);
+}

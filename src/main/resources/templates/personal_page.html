@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Page</title>
+
+    <!-- Spring Boot style link -->
+    <link rel="stylesheet" th:href="@{/css/person.css}">
+</head>
+<body>
+    <div class="page-container">
+        <header class="top-bar">
+            <div class="logo">MyPortal</div>
+            <nav class="nav-links">
+                <a th:href="@{/home}">Home</a>
+                <a th:href="@{/profile}">Profile</a>
+                <a th:href="@{/settings}">Settings</a>
+            </nav>
+        </header>
+
+        <main class="content">
+            <section class="welcome-card">
+                <div class="avatar" th:text="${#strings.substring(userLogin, 0, 1)}">U</div>
+
+                <p class="subtitle">Welcome back,</p>
+
+                <h1 class="title">
+                    <span th:text="${userLogin}">User</span> 👋
+                </h1>
+
+                <p class="description">
+                    This is your personal space. You can manage your profile, explore your dashboard,
+                    and customize your preferences from here.
+                </p>
+
+                <div class="actions">
+                    <a th:href="@{/dashboard}" class="btn primary">Go to Dashboard</a>
+                    <a th:href="@{/login}" class="btn ghost">Logout</a>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
